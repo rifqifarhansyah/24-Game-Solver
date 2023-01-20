@@ -1,0 +1,5 @@
+Solusi :
+Waktu Eksekusi	: 0.000000s
+Kartu Masukan	: K K K K 
+Tidak Ada Solusi
+
