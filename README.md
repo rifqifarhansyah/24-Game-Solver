@@ -76,7 +76,7 @@ main.exe < input.txt
 <a name="screenshots"></a>
 
 ## Screenshots
-<p align=center>
+<p>
   <img src="/image/1.png/">
   <p>Figure 1. Main Menu</p>
   <nl>
