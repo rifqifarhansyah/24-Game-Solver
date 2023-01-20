@@ -114,7 +114,6 @@ main.exe < input.txt
 │
 ├───src
 │       main.cpp
-│       main.exe
 │
 └───test
     ├───input
