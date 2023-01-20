@@ -155,6 +155,6 @@ Solusi :
 154 (7+8)+(6+3)
 155 7+((8+6)+3)
 156 7+(8+(6+3))
-Waktu Eksekusi	: 0.088000s
+Waktu Eksekusi	: 0.051000s
 Kartu Masukan	: 3 6 8 7 
 Jumlah solusi	: 156
