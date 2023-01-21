@@ -1,6 +1,6 @@
 # Tugas Kecil 1 Strategi Algoritma 2022/2023
 <h2 align="center">
-  24-Game-Solver in C++<br/>
+  👾 24-Game-Solver in C++ 👾<br/>
 </h2>
 <hr>
 
