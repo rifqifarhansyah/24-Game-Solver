@@ -81,7 +81,7 @@ A simple program to solve the 24 game problem. The program will take 4 numbers a
   <p>Figure 4. Saving output file</p>
   <nl>
   <img src="/image/5.png/">
-  <p>Figure 4. Output txt file (via Random Input)</p>
+  <p>Figure 5. Output txt file (via Random Input)</p>
   <nl>
 </p>
 
