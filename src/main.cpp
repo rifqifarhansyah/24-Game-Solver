@@ -8,7 +8,7 @@
 using namespace std;
 
 /* INISIALISAI VARIABEL */
-char Op[] = {'*','+','/','-'};  char NumString[4]; double Num[4]; double ArrNum[24][4]; string txt; ifstream file; string str; string txtOut; ofstream fileOutput;
+char Op[] = {'*','+','/','-'};  string NumString[4]; double Num[4]; double ArrNum[24][4]; string txt; ifstream file; string str; string txtOut; ofstream fileOutput;
 
 double OpFunc (char op, double a, double b) { 
 /* Fungsi empat operator aritmatika aritmatika */
@@ -20,7 +20,8 @@ double OpFunc (char op, double a, double b) {
 
 int main () {
   ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0); // Mempercepat IO
-  int no = 0; int n = 0; int Hasil = 24; double EPS = 0.0000000001; bool IsExist; int pilihanMode; char pilihanSave;
+  bool valid = false;
+  int no = 0; int n = 0; int solusiCounter = 0; int Hasil = 24; double EPS = 0.0000000001; bool IsExist; int pilihanMode; char pilihanSave;
   str = "";
 
   /* ASCII ART sebagai kode start program */
@@ -50,63 +51,104 @@ int main () {
               << endl;
 
   /* Kode untuk memilih jenis masukan */
-  cout << "================================================" << endl;
-  cout<<"Masukkan pilihan masukan:"<<endl;
-  cout<<"1. Masukan via CLI"<<endl;
-  cout<<"2. Masukan via file (*.txt)"<<endl;
-  cout<<"3. Masukan random dari sistem"<<endl;
-  cin >> pilihanMode;
+  while(!valid){
+    cout << "================================================" << endl;
+    cout<<"Masukkan pilihan masukan:"<<endl;
+    cout<<"1. Masukan via CLI"<<endl;
+    cout<<"2. Masukan via file (*.txt)"<<endl;
+    cout<<"3. Masukan random dari sistem"<<endl;
+    valid=true;
+    cin >> pilihanMode;
+      if(pilihanMode != 1 && pilihanMode != 2 && pilihanMode != 3){
+        valid = false;
+        cout << "Input tidak valid. Silahkan coba kembali."<<endl;
+      }
+  }
+  valid=false;
   cout << "================================================" << endl;
   switch(pilihanMode){
     case 1:
-      cout<<"Silahkan masukkan nilai yang akan diproses: "<<endl;
-      for (int i = 0 ; i < 4 ; ++i){
-        cin >> NumString[i];
-        switch(NumString[i]){
-          case 'A':
-            Num[i] = 1;
+      while(!valid){
+        valid = true;
+        cout<<"Silahkan masukkan nilai yang akan diproses: "<<endl;
+        for (int i = 0 ; i < 4 ; ++i){
+          cin >> NumString[i];
+          if(NumString[i] == "2" || NumString[i] == "3" || NumString[i] == "4" || NumString[i] == "5" || NumString[i] == "6" || NumString[i] == "7" || NumString[i] == "8" || NumString[i] == "9" || NumString[i] == "A" || NumString[i] == "J" || NumString[i] == "Q" || NumString[i] == "K" || NumString[i] == "10"){
+            switch(NumString[i][0]){
+              case 'A':
+                Num[i] = 1;
+                break;
+              case 'J':
+                Num[i] = 11;
+                break;
+              case 'Q':
+                Num[i] = 12;
+                break;
+              case 'K':
+                Num[i] = 13;
+                break;
+              default:
+                if(NumString[i] == "10"){
+                  Num[i] = 10;
+                }else{
+                  Num[i] = double(NumString[i][0]) - 48;
+                }
+                break;
+            }
+          } else{
+            valid = false;
+            cout << "Input tidak valid. Silahkan masukkan karakter yang valid (A, 2-10, J, Q, K)!"<<endl;
+            cout << "================================================" << endl;
+            for(int i=0; i<4; i++)
+              NumString[i]="";
             break;
-          case 'J':
-            Num[i] = 11;
-            break;
-          case 'Q':
-            Num[i] = 12;
-            break;
-          case 'K':
-            Num[i] = 13;
-            break;
-          default:
-            Num[i] = double(NumString[i]) - 48;
-            break;
+          }
         }
       }
       cout << "================================================" << endl;
       break;
     case 2:
-      cout<<"Silahkan masukkan nama file yang akan diproses: "<<endl;
-      cin >> txt;
-      file.open("../test/input/" + txt + ".txt");
-      for(int i = 0 ; i < 4 ; i++){
-        file >> NumString[i];
-        switch(NumString[i]){
-          case 'A':
-            Num[i] = 1;
+      while(!valid){
+        valid = true;
+        cout<<"Silahkan masukkan nama file yang akan diproses: "<<endl;
+        cin >> txt;
+        file.open("../test/input/" + txt + ".txt");
+        for(int i = 0 ; i < 4 ; i++){
+          file >> NumString[i];
+          if(NumString[i] == "2" || NumString[i] == "3" || NumString[i] == "4" || NumString[i] == "5" || NumString[i] == "6" || NumString[i] == "7" || NumString[i] == "8" || NumString[i] == "9" || NumString[i] == "A" || NumString[i] == "J" || NumString[i] == "Q" || NumString[i] == "K" || NumString[i] == "10"){
+            switch(NumString[i][0]){
+              case 'A':
+                Num[i] = 1;
+                break;
+              case 'J':
+                Num[i] = 11;
+                break;
+              case 'Q':
+                Num[i] = 12;
+                break;
+              case 'K':
+                Num[i] = 13;
+                break;
+              default:
+                if(NumString[i] == "10"){
+                  Num[i] = 10;
+                }else{
+                  Num[i] = double(NumString[i][0]) - 48;
+                }
+                break;
+            }
+          }
+          else{
+            valid = false;
+            cout << "Input tidak valid. Silahkan masukkan nama file yang berisi karakter valid (A, 2-10, J, Q, K)!"<<endl;
+            cout << "================================================" << endl;
+            for(int i=0; i<4; i++)
+              NumString[i]="";
             break;
-          case 'J':
-            Num[i] = 11;
-            break;
-          case 'Q':
-            Num[i] = 12;
-            break;
-          case 'K':
-            Num[i] = 13;
-            break;
-          default:
-            Num[i] = double(NumString[i]) - 48;
-            break;
+          }
         }
+        file.close();
       }
-      file.close();
       cout << "================================================" << endl;
       break;
     case 3:
@@ -138,9 +180,65 @@ int main () {
   }
 
   /* Kode untuk mengecek solusi yang ada */
-  cout << "Solusi :" <<endl;
-  str += "Solusi :\n";
+  for (int a = 0 ; a < 4 ; a++){
+    for(int b = 0 ; b <4 ; b++) {
+      if (b != a){
+        for (int c = 0 ; c < 4 ; c++) {
+          if ((c != a) && (c != b)) {
+            for (int d = 0 ; d < 4 ; d++) {
+              if ((d !=a ) && (d != b) && ( d!= c)){
+                ArrNum[n][0] = Num[a]; ArrNum[n][1] = Num[b];
+                ArrNum[n][2] = Num[c]; ArrNum[n][3] = Num[d]; IsExist = false;
+                for (int f = 0 ; f < n ; f++) {
+                  for (int g = 0 ; g < 4 ; g++) {
+                    if (g < 3) {
+                      if (ArrNum[f][g] != ArrNum[n][g]) break;
+                    } else {
+                      if (ArrNum[f][g] == ArrNum[n][g]) IsExist = true;
+                    }
+                  }
+                  if (IsExist == true) break;
+                }
+
+                if (IsExist == false ) {
+                  n++;
+                  for (int i = 0 ; i < 4 ; i++) { // Operator pertama
+                    for (int j = 0 ; j < 4 ; j++) { // Operator kedua
+                      for (int k = 0; k < 4 ; k++) { // Operator ketiga
+                      /* Fungsi untuk mengatasi semua kemungkinan bracket (5 kemungkinan) */
+                        if (fabs(OpFunc(Op[k], (OpFunc(Op[j], (OpFunc(Op[i],Num[a], Num[b])), Num[c])), Num[d]) -Hasil) <= EPS) { // ((n0 op0 n1) op1 n2) op2 d3
+                          solusiCounter++; 
+                        }
+                        if (fabs(OpFunc(Op[k], (OpFunc( Op[i], Num[a], (OpFunc(Op[j],Num[b], Num[c])) ) ) , Num[d])- Hasil) <= EPS) { // (n0 op0 (n1 op1 n2)) op2 d3
+                          solusiCounter++; 
+                        }
+                        if (fabs(OpFunc(Op[j],OpFunc(Op[i], Num[a], Num[b]), OpFunc(Op[k], Num[c], Num[d])) - Hasil ) <= EPS) { // (n0 op0 n1) op1 (n2 op2 n3)
+                          solusiCounter++; 
+                        }
+                        if (fabs(OpFunc(Op[i],Num[a],OpFunc(Op[k],OpFunc(Op[j],Num[b],Num[c]), Num[d])) - Hasil) <= EPS) { // n0 op0 ((n1 op1 n2) op2 n3)
+                          solusiCounter++; 
+                        }
+                        if (fabs(OpFunc(Op[i],Num[a],OpFunc(Op[j],Num[b],OpFunc(Op[k], Num[c],Num[d]))) - Hasil) <= EPS) { // n0 op0 (n1 op1 (n2 op2 n3))
+                          solusiCounter++; 
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  cout << "Terdapat " << solusiCounter << " solusi" <<endl;
+  str += "Terdapat ";
+  str += to_string(solusiCounter);
+  str += " solusi\n";
+
   clock_t Mulai = clock(); //Waktu Dimulai
+  n=0;
   for (int a = 0 ; a < 4 ; a++){
     for(int b = 0 ; b <4 ; b++) {
       if (b != a){
@@ -215,19 +313,18 @@ int main () {
   }
   str += "\n";
 
-  /* Kode untuk mengecek jumlah solusi */
-  if (no == 0){
-    cout << "Tidak Ada Solusi" << endl;
-    str += "Tidak Ada Solusi\n";
-  }else{
-    cout << "Jumlah solusi\t: " << no << endl;
-    str += "Jumlah solusi\t: "; str += to_string(no);
-  }
-
   /* Kode untuk menyimpan hasil */
-  cout << "================================================" << endl;
-  cout << "Apakah hasil ingin disimpan? (y/n): " << endl;
-  cin >> pilihanSave;
+  valid = false;
+  while(!valid){
+    cout << "================================================" << endl;
+    cout << "Apakah hasil ingin disimpan? (y/n): " << endl;
+    cin >> pilihanSave;
+    valid = true;
+    if(pilihanSave != 'y' && pilihanSave != 'n'){
+      valid = false;
+      cout << "Input tidak valid. Silahkan coba kembali." << endl;
+    }
+  }
   cout << "================================================" << endl;
   switch(pilihanSave){
     case 'y':

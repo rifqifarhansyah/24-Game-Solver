@@ -1,4 +1,4 @@
-Solusi :
+Terdapat 16 solusi
 1 ((13-11)+6)*3
 2 (13-(11-6))*3
 3 ((13+6)-11)*3
@@ -15,6 +15,6 @@ Solusi :
 14 3*(6+(13-11))
 15 3*((6-11)+13)
 16 3*(6-(11-13))
-Waktu Eksekusi	: 0.004000s
+Waktu Eksekusi	: 0.005000s
 Kartu Masukan	: K J 6 3 
-Jumlah solusi	: 16
+

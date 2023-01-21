@@ -21,7 +21,7 @@
 <a name="general-information"></a>
 
 ## General Information
-A simple program to solve the 24 game problem. The program will take 4 numbers as input and will output all possible solutions to the 24 game problem. The program will also output the number of solutions. This project is based on the brute force algorithm and write in C++ (Command Line Interface).
+A simple program to solve the 24 game problem. The program will take 4 numbers as input and will output all possible solutions for 24 game problem. Program will also output the number of solutions and the execution time. This project is based on the brute force algorithm and write in C++ (Command Line Interface).
 
 <a name="creator-information"></a>
 
@@ -72,13 +72,16 @@ A simple program to solve the 24 game problem. The program will take 4 numbers a
   <p>Figure 1. Main Menu</p>
   <nl>
   <img src="/image/2.png/">
-  <p>Figure 2. Input File Interface</p>
+  <p>Figure 2. Input File Interface (via File Input)</p>
   <nl>
   <img src="/image/3.png/">
-  <p>Figure 3. Save File Interface</p>
+  <p>Figure 3. Solution Output Interface (via CLI Input)</p>
   <nl>
   <img src="/image/4.png/">
-  <p>Figure 4. Output File</p>
+  <p>Figure 4. Saving output file</p>
+  <nl>
+  <img src="/image/5.png/">
+  <p>Figure 4. Output txt file (via Random Input)</p>
   <nl>
 </p>
 
@@ -102,6 +105,7 @@ A simple program to solve the 24 game problem. The program will take 4 numbers a
 │       2.png
 │       3.png
 │       4.png
+│       5.png
 │
 ├───src
 │       main.cpp

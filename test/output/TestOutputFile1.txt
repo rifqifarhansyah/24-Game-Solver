@@ -1,4 +1,4 @@
-Solusi :
+Terdapat 156 solusi
 1 ((3+6)+8)+7
 2 (3+(6+8))+7
 3 (3+6)+(8+7)
@@ -155,6 +155,6 @@ Solusi :
 154 (7+8)+(6+3)
 155 7+((8+6)+3)
 156 7+(8+(6+3))
-Waktu Eksekusi	: 0.051000s
+Waktu Eksekusi	: 0.053000s
 Kartu Masukan	: 3 6 8 7 
-Jumlah solusi	: 156
+

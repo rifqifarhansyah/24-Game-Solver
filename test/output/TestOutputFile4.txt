@@ -1,4 +1,4 @@
-Solusi :
+Terdapat 64 solusi
 1 12*((6-8)+4)
 2 12*(6-(8-4))
 3 12+((6*8)/4)
@@ -63,6 +63,6 @@ Solusi :
 62 (4-8)*(6-12)
 63 ((4-8)+6)*12
 64 (4-(8-6))*12
-Waktu Eksekusi	: 0.014000s
+Waktu Eksekusi	: 0.021000s
 Kartu Masukan	: Q 6 8 4 
-Jumlah solusi	: 64
+

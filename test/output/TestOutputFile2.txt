@@ -1,5 +1,4 @@
-Solusi :
+Terdapat 0 solusi
 Waktu Eksekusi	: 0.000000s
 Kartu Masukan	: A 8 7 6 
-Tidak Ada Solusi
 

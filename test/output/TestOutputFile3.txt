@@ -1,4 +1,4 @@
-Solusi :
+Terdapat 26 solusi
 1 (11+(3*6))-5
 2 11+((3*6)-5)
 3 (11+(6*3))-5
@@ -25,6 +25,6 @@ Solusi :
 24 6-((5-11)*3)
 25 6*((5*3)-11)
 26 ((5*3)-11)*6
-Waktu Eksekusi	: 0.006000s
+Waktu Eksekusi	: 0.008000s
 Kartu Masukan	: J 3 6 5 
-Jumlah solusi	: 26
+
