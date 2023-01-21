@@ -21,7 +21,7 @@ double OpFunc (char op, double a, double b) {
 int main () {
   ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0); // Mempercepat IO
   bool valid = false;
-  int no = 0; int n = 0; int solusiCounter = 0; int Hasil = 24; double EPS = 0.0000000001; bool IsExist; int pilihanMode; char pilihanSave;
+  int no = 0; int n = 0; int solusiCounter = 0; int Hasil = 24; double EPS = 0.0000000001; bool IsExist; string pilihanMode; string pilihanSave; int printError=0;
   str = "";
 
   /* ASCII ART sebagai kode start program */
@@ -59,15 +59,19 @@ int main () {
     cout<<"3. Masukan random dari sistem"<<endl;
     valid=true;
     cin >> pilihanMode;
-      if(pilihanMode != 1 && pilihanMode != 2 && pilihanMode != 3){
+      if(pilihanMode != "1" && pilihanMode != "2" && pilihanMode != "3"){
         valid = false;
-        cout << "Input tidak valid. Silahkan coba kembali."<<endl;
+        if(printError == 0){
+          cout << "Input tidak valid. Silahkan coba kembali."<<endl;
+          printError++;
+        }
       }
+    printError=0;
   }
   valid=false;
   cout << "================================================" << endl;
-  switch(pilihanMode){
-    case 1:
+  switch(pilihanMode[0]){
+    case '1':
       while(!valid){
         valid = true;
         cout<<"Silahkan masukkan nilai yang akan diproses: "<<endl;
@@ -97,17 +101,22 @@ int main () {
             }
           } else{
             valid = false;
-            cout << "Input tidak valid. Silahkan masukkan karakter yang valid (A, 2-10, J, Q, K)!"<<endl;
-            cout << "================================================" << endl;
-            for(int i=0; i<4; i++)
-              NumString[i]="";
-            break;
+            if(printError == 0){
+              cout << "Input tidak valid. Silahkan masukkan karakter yang valid (A, 2-10, J, Q, K)!"<<endl;
+              cout << "================================================" << endl;
+              printError++;
+            }
+            for(int i = 0 ; i < 4 ; i ++){
+              NumString[i] = "";
+              Num[i] = 0;
+            }
           }
         }
       }
       cout << "================================================" << endl;
+      printError=0;
       break;
-    case 2:
+    case '2':
       while(!valid){
         valid = true;
         cout<<"Silahkan masukkan nama file yang akan diproses: "<<endl;
@@ -140,18 +149,22 @@ int main () {
           }
           else{
             valid = false;
-            cout << "Input tidak valid. Silahkan masukkan nama file yang berisi karakter valid (A, 2-10, J, Q, K)!"<<endl;
-            cout << "================================================" << endl;
+            if(printError == 0){
+              cout << "Input tidak valid. Silahkan masukkan nama file yang berisi karakter valid (A, 2-10, J, Q, K)!"<<endl;
+              cout << "================================================" << endl;
+              printError++;
+            }
             for(int i=0; i<4; i++)
               NumString[i]="";
-            break;
+              Num[i]=0;
           }
         }
         file.close();
       }
       cout << "================================================" << endl;
+      printError=0;
       break;
-    case 3:
+    case '3':
       srand(time(0));
       for(int i = 0; i < 4 ; i++){
         int x = rand() % 13 + 1;
@@ -325,13 +338,17 @@ int main () {
     cout << "Apakah hasil ingin disimpan? (y/n): " << endl;
     cin >> pilihanSave;
     valid = true;
-    if(pilihanSave != 'y' && pilihanSave != 'n'){
+    if(pilihanSave != "y" && pilihanSave != "n"){
       valid = false;
-      cout << "Input tidak valid. Silahkan coba kembali." << endl;
+      if(printError==0){
+        cout << "Input tidak valid. Silahkan coba kembali." << endl;
+        printError++;
+      }
     }
+    printError = 0;
   }
   cout << "================================================" << endl;
-  switch(pilihanSave){
+  switch(pilihanSave[0]){
     case 'y':
       cout << "Masukkan nama file untuk keluaran:" << endl;
       cin >> txtOut;
