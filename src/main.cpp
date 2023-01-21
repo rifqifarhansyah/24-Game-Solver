@@ -232,10 +232,15 @@ int main () {
       }
     }
   }
-  cout << "Terdapat " << solusiCounter << " solusi" <<endl;
-  str += "Terdapat ";
-  str += to_string(solusiCounter);
-  str += " solusi\n";
+  if(solusiCounter == 0){
+    cout << "Tidak ada solusi" << endl;
+    str += "Tidak ada solusi\n";
+  } else {
+    cout << "Terdapat " << solusiCounter << " solusi" <<endl;
+    str += "Terdapat ";
+    str += to_string(solusiCounter);
+    str += " solusi\n";
+  }
 
   clock_t Mulai = clock(); //Waktu Dimulai
   n=0;
