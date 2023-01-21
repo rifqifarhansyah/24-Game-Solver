@@ -27,9 +27,9 @@ A simple program to solve the 24 game problem. The program will take 4 numbers a
 
 ## Creator Information
 
-| Nama                        | NIM      |
-| --------------------------- | -------- |
-| Mohammad Rifqi Farhansyah   | 13521166 |
+| Nama                        | NIM      | E-Mail                      |
+| --------------------------- | -------- | --------------------------- |
+| Mohammad Rifqi Farhansyah   | 13521166 | 13521166@std.stei.itb.ac.id |
 
 <a name="features"></a>
 
@@ -58,20 +58,11 @@ A simple program to solve the 24 game problem. The program will take 4 numbers a
 
 ## Usage
 1. Open the terminal in the project directory.
-2. Compile the program using the command below.
-```bash
-g++ -o main.exe main.cpp
-```
-3. Run the program using the command below.
-```bash
-main.exe
-```
-4. Input the numbers.
-5. If you want to input the numbers with a txt file. Create a txt file and put the numbers in the txt file. Then run the program using the command below.
-```bash
-main.exe < input.txt
-```
-6. The program will output the solutions and the number of solutions.
+2. `cd bin` and then `main.exe` to run the program.
+3. Choose the input format.
+4. If you choose the CLI input format, you can input the 4 numbers. If you choose the File input format, you can input the file name (that have been placed in `../test/input`). If you choose the Random input format, the program will generate the 4 random numbers.
+5. The program will output the all possible solutions to the 24 game problem, the number of solutions, and the execution time.
+6. If you want to save the output to a txt file, you can choose the `y` option. If you choose this option, you can input the file name (that will be placed in `../test/output`).
 
 <a name="screenshots"></a>
 
@@ -165,7 +156,7 @@ https://informatika.stei.itb.ac.id/~rinaldi.munir/Stmik/2015-2016/Makalah-2016/M
 
 ## Contact
 <h4 align="center">
-  Contact Me : mrifki@gmail.com<br/>
+  Contact Me : mrifki193@gmail.com<br/>
   2023
 </h4>
 <hr>
