@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <cstdlib>
 #include <ctime>
@@ -8,7 +9,7 @@
 using namespace std;
 
 /* INISIALISAI VARIABEL */
-char Op[] = {'*','+','/','-'};  string NumString[4]; double Num[4]; double ArrNum[24][4]; string txt; ifstream file; string str; string txtOut; ofstream fileOutput;
+char Op[] = {'*','+','/','-'}; int inputCount; string stringNum; string NumString[4]; double Num[4]; double ArrNum[24][4]; string txt; ifstream file; string str; string txtOut; ofstream fileOutput;
 
 double OpFunc (char op, double a, double b) { 
 /* Fungsi empat operator aritmatika aritmatika */
@@ -59,58 +60,76 @@ int main () {
     cout<<"3. Masukan random dari sistem"<<endl;
     valid=true;
     cin >> pilihanMode;
-      if(pilihanMode != "1" && pilihanMode != "2" && pilihanMode != "3"){
-        valid = false;
-        if(printError == 0){
-          cout << "Input tidak valid. Silahkan coba kembali."<<endl;
-          printError++;
-        }
-      }
+    cin.ignore();
+    if(pilihanMode != "1" && pilihanMode != "2" && pilihanMode != "3"){
+    valid = false;
+    if(printError == 0){
+        cout << "Input tidak valid. Silahkan coba kembali."<<endl;
+        printError++;
+    }
+    }
     printError=0;
   }
   valid=false;
   cout << "================================================" << endl;
   switch(pilihanMode[0]){
     case '1':
-      while(!valid){
+    while(!valid){
         valid = true;
+        inputCount = 0;
+        printError=0;
         cout<<"Silahkan masukkan nilai yang akan diproses: "<<endl;
-        for (int i = 0 ; i < 4 ; ++i){
-          cin >> NumString[i];
-          if(NumString[i] == "2" || NumString[i] == "3" || NumString[i] == "4" || NumString[i] == "5" || NumString[i] == "6" || NumString[i] == "7" || NumString[i] == "8" || NumString[i] == "9" || NumString[i] == "A" || NumString[i] == "J" || NumString[i] == "Q" || NumString[i] == "K" || NumString[i] == "10"){
-            switch(NumString[i][0]){
-              case 'A':
-                Num[i] = 1;
-                break;
-              case 'J':
-                Num[i] = 11;
-                break;
-              case 'Q':
-                Num[i] = 12;
-                break;
-              case 'K':
-                Num[i] = 13;
-                break;
-              default:
-                if(NumString[i] == "10"){
-                  Num[i] = 10;
-                }else{
-                  Num[i] = double(NumString[i][0]) - 48;
-                }
+        getline(cin, stringNum);
+        stringstream ssin(stringNum);
+        while(ssin.good()){
+            string temp;
+            ssin >> temp;
+            if (inputCount > 3) {
+                valid = false;
+                cout << "Input tidak valid. Silahkan masukkan 4 karakter saja!"<<endl;
+                cout << "================================================" << endl;
                 break;
             }
-          } else{
-            valid = false;
-            if(printError == 0){
-              cout << "Input tidak valid. Silahkan masukkan karakter yang valid (A, 2-10, J, Q, K)!"<<endl;
-              cout << "================================================" << endl;
-              printError++;
-            }
+            NumString[inputCount] = temp;
+            inputCount++;
+        }
+        if(valid){
             for(int i = 0 ; i < 4 ; i ++){
-              NumString[i] = "";
-              Num[i] = 0;
+                if(NumString[i] == "2" || NumString[i] == "3" || NumString[i] == "4" || NumString[i] == "5" || NumString[i] == "6" || NumString[i] == "7" || NumString[i] == "8" || NumString[i] == "9" || NumString[i] == "A" || NumString[i] == "J" || NumString[i] == "Q" || NumString[i] == "K" || NumString[i] == "10"){
+                    switch(NumString[i][0]){
+                    case 'A':
+                        Num[i] = 1;
+                        break;
+                    case 'J':
+                        Num[i] = 11;
+                        break;
+                    case 'Q':
+                        Num[i] = 12;
+                        break;
+                    case 'K':
+                        Num[i] = 13;
+                        break;
+                    default:
+                        if(NumString[i] == "10"){
+                        Num[i] = 10;
+                        }else{
+                        Num[i] = double(NumString[i][0]) - 48;
+                        }
+                        break;
+                    }
+                } else{
+                    valid = false;
+                    if(printError == 0){
+                        cout << "Input tidak valid. Silahkan masukkan karakter yang valid (A, 2-10, J, Q, K)!"<<endl;
+                        cout << "================================================" << endl;
+                        printError++;
+                    }
+                    for(int j = 0 ; j < i+1 ; j ++){
+                    NumString[j] = "";
+                    Num[j] = 0;
+                    }
+                }
             }
-          }
         }
       }
       cout << "================================================" << endl;
@@ -119,45 +138,71 @@ int main () {
     case '2':
       while(!valid){
         valid = true;
+        inputCount = 0;
+        printError = 0;
         cout<<"Silahkan masukkan nama file yang akan diproses: "<<endl;
         cin >> txt;
         file.open("../test/input/" + txt + ".txt");
-        for(int i = 0 ; i < 4 ; i++){
-          file >> NumString[i];
-          if(NumString[i] == "2" || NumString[i] == "3" || NumString[i] == "4" || NumString[i] == "5" || NumString[i] == "6" || NumString[i] == "7" || NumString[i] == "8" || NumString[i] == "9" || NumString[i] == "A" || NumString[i] == "J" || NumString[i] == "Q" || NumString[i] == "K" || NumString[i] == "10"){
-            switch(NumString[i][0]){
-              case 'A':
-                Num[i] = 1;
-                break;
-              case 'J':
-                Num[i] = 11;
-                break;
-              case 'Q':
-                Num[i] = 12;
-                break;
-              case 'K':
-                Num[i] = 13;
-                break;
-              default:
-                if(NumString[i] == "10"){
-                  Num[i] = 10;
-                }else{
-                  Num[i] = double(NumString[i][0]) - 48;
+        if(file.is_open()){
+            while(getline(file, stringNum)){
+                stringstream ssin(stringNum);
+                while(ssin.good()){
+                    string temp;
+                    ssin >> temp;
+                    if (inputCount > 3) {
+                        valid = false;
+                        cout << "Input tidak valid. Silahkan masukkan 4 karakter saja!"<<endl;
+                        cout << "================================================" << endl;
+                        break;
+                    }
+                    NumString[inputCount] = temp;
+                    inputCount++;
                 }
-                break;
             }
-          }
-          else{
+        }
+        else{
             valid = false;
-            if(printError == 0){
-              cout << "Input tidak valid. Silahkan masukkan nama file yang berisi karakter valid (A, 2-10, J, Q, K)!"<<endl;
-              cout << "================================================" << endl;
-              printError++;
+            cout << "File tidak ditemukan. Silahkan coba kembali."<<endl;
+            cout << "================================================" << endl;
+        }
+        if(valid){
+            for(int i = 0 ; i < 4 ; i++){
+                if(NumString[i] == "2" || NumString[i] == "3" || NumString[i] == "4" || NumString[i] == "5" || NumString[i] == "6" || NumString[i] == "7" || NumString[i] == "8" || NumString[i] == "9" || NumString[i] == "A" || NumString[i] == "J" || NumString[i] == "Q" || NumString[i] == "K" || NumString[i] == "10"){
+                    switch(NumString[i][0]){
+                    case 'A':
+                        Num[i] = 1;
+                        break;
+                    case 'J':
+                        Num[i] = 11;
+                        break;
+                    case 'Q':
+                        Num[i] = 12;
+                        break;
+                    case 'K':
+                        Num[i] = 13;
+                        break;
+                    default:
+                        if(NumString[i] == "10"){
+                        Num[i] = 10;
+                        }else{
+                        Num[i] = double(NumString[i][0]) - 48;
+                        }
+                        break;
+                    }
+                }
+                else{
+                    valid = false;
+                    if(printError == 0){
+                        cout << "Input tidak valid. Silahkan masukkan nama file yang berisi karakter valid (A, 2-10, J, Q, K)!"<<endl;
+                        cout << "================================================" << endl;
+                        printError++;
+                    }
+                    for(int j = 0; j < i+1; j ++){
+                        NumString[j]="";
+                        Num[j]=0;
+                    }
+                }
             }
-            for(int i=0; i<4; i++)
-              NumString[i]="";
-              Num[i]=0;
-          }
         }
         file.close();
       }
