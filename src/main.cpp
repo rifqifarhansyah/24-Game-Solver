@@ -227,6 +227,9 @@ int main () {
           case 13:
             NumString[i] = 'K';
             break;
+          case 10:
+            NumString[i] = "10";
+            break;
           default:
             string conv = to_string(Num[i]);
             NumString[i] = conv[0];
