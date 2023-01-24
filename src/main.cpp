@@ -170,6 +170,11 @@ int main () {
             cout << "File tidak ditemukan. Silahkan coba kembali."<<endl;
             cout << "================================================" << endl;
         }
+        if(inputCount < 4){
+            valid = false;
+            cout << "Input tidak valid. Silahkan masukkan 4 karakter!"<<endl;
+            cout << "================================================" << endl;
+        }
         if(valid){
             for(int i = 0 ; i < 4 ; i++){
                 if(NumString[i] == "2" || NumString[i] == "3" || NumString[i] == "4" || NumString[i] == "5" || NumString[i] == "6" || NumString[i] == "7" || NumString[i] == "8" || NumString[i] == "9" || NumString[i] == "A" || NumString[i] == "J" || NumString[i] == "Q" || NumString[i] == "K" || NumString[i] == "10"){
