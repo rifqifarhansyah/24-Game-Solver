@@ -21,7 +21,7 @@
 <a name="general-information"></a>
 
 ## General Information
-A simple program to solve the 24 game problem. The program will take 4 numbers as input and will output all possible solutions for 24 game problem. Program will also output the number of solutions and the execution time. This project is based on the brute force algorithm and write in C++ (Command Line Interface).
+A simple program to solve the 24 game problem. The program will take 4 numbers as input and will output all possible solutions for 24 game problem. Program will also output the number of solutions and the execution time. This project is based on the brute force algorithm and write in C++ (Command Line Interface). This project got the `best score among informatics engineering students  at ITB in 2023`.  
 
 <a name="creator-information"></a>
 
